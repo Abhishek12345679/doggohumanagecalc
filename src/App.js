@@ -58,11 +58,13 @@ function App() {
         />
         <input type="submit" value="Find Out" />
       </Form>
-      <div>
-        <h2>
-          {name} is {Math.floor(humanAge)} in hooman years
-        </h2>
-      </div>
+      {humanAge && (
+        <div>
+          <h2>
+            {name} is {Math.floor(humanAge)} in hooman years
+          </h2>
+        </div>
+      )}
     </div>
   );
 }
