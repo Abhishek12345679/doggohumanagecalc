@@ -108,7 +108,7 @@ function App() {
             &times;
           </a> */}
           <h3>
-            {name} is {Math.floor(humanAge)} years old
+            Your {name} is {Math.floor(humanAge)} years old
           </h3>
         </div>
       </MyPopup>
