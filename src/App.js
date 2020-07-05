@@ -50,7 +50,12 @@ function App() {
         See how we calculate the age
       </a>
 
-      <Form onSubmit={doggoToHumanAgeCalc}>
+      <Form
+        onSubmit={doggoToHumanAgeCalc}
+        name="doggodata"
+        method="POST"
+        data-netlify="true"
+      >
         {/* <label
           style={{ color: "#fff", textAlign: "left", justifyContent: "left" }}
         >
