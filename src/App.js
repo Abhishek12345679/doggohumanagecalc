@@ -3,7 +3,7 @@ import "./App.css";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
 
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 function App() {
   const [name, setName] = useState("");
@@ -28,6 +28,7 @@ function App() {
       setShowPopup((prevResult) => !prevResult);
     } else {
       alert("Enter the name and age and then continue");
+      return;
     }
 
     event.preventDefault();
@@ -86,7 +87,7 @@ function App() {
         <a href="https://www.theguardian.com/lifeandstyle/2020/jul/02/every-human-year-not-equivalent-to-seven-dog-years-scientists-find?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts">
           how we calculate the age
         </a>
-        <Form onSubmit={doggoToHumanAgeCalc} name="contact" method="post">
+        <Form onSubmit={doggoToHumanAgeCalc}>
           {/* <label
           style={{ color: "#fff", textAlign: "left", justifyContent: "left" }}
         >
@@ -139,14 +140,9 @@ function App() {
           closeOnDocumentClick
           onClose={() => setShowPopup(false)}
         >
-          <div className="modal">
-            {/* <a className="close" onClick={() => setShowPopup(false)}>
-            &times;
-          </a> */}
-            <h3>
-              Your {name} is {Math.floor(humanAge)} years old
-            </h3>
-          </div>
+          <h3 style={{ color: "#000" }}>
+            Your {name} is {Math.floor(humanAge)} years old
+          </h3>
         </MyPopup>
       </div>
     </div>
