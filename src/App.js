@@ -85,7 +85,7 @@ function App() {
         <br></br>
         have stopped running riot with the toilet paper.<br></br>
         <a href="https://www.theguardian.com/lifeandstyle/2020/jul/02/every-human-year-not-equivalent-to-seven-dog-years-scientists-find?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts">
-          See how we calculate the age
+          how we calculate the age
         </a>
         <Form onSubmit={doggoToHumanAgeCalc} name="contact" method="post">
           {/* <label
