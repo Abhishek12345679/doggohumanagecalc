@@ -75,9 +75,9 @@ function App() {
         </Navbar>
       </header>
       <div className="content">
-        According to the researchers at the University of California San
+        According to the researchers at the University of California San Diego's
         <br></br>
-        Diego’s school of medicine, one dog year is not equal to seven human
+        school of medicine, one dog year is not equal to seven human
         <br></br>
         years. The findings suggest a one-year-old puppy is actually about 30
         <br></br>
