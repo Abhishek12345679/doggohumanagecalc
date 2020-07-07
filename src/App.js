@@ -3,6 +3,8 @@ import "./App.css";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
 
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+
 function App() {
   const [name, setName] = useState("");
   const [doggoAge, setDoggoAge] = useState("");
@@ -34,8 +36,45 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ color: "#fff" }}>How Old is my Dog?</h1>
-      <div style={{ padding: 20, color: "#fff" }}>
+      {/* <h1 style={{ color: "#fff" }}>How Old is my Dog?</h1> */}
+      <header>
+        <Navbar
+          collapseOnSelect
+          expand="xl"
+          bg="dark"
+          variant="dark"
+          fixed="top"
+        >
+          <Navbar.Brand href="#home">DoggAge</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#features">Changes</Nav.Link>
+              <Nav.Link href="#pricing">Donate</Nav.Link>
+              {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Something
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown> */}
+            </Nav>
+            <Nav>
+              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+                Dank memes
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </header>
+      <div className="content">
         According to the researchers at the University of California San
         <br></br>
         Diego’s school of medicine, one dog year is not equal to seven human
@@ -45,78 +84,72 @@ function App() {
         in “human years” – an age when humans, at least, might be expected to
         <br></br>
         have stopped running riot with the toilet paper.<br></br>
-      </div>
-      <a href="https://www.theguardian.com/lifeandstyle/2020/jul/02/every-human-year-not-equivalent-to-seven-dog-years-scientists-find?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts">
-        See how we calculate the age
-      </a>
-
-      <Form
-        onSubmit={doggoToHumanAgeCalc}
-        name="doggodata"
-        method="POST"
-        data-netlify="true"
-      >
-        {/* <label
+        <a href="https://www.theguardian.com/lifeandstyle/2020/jul/02/every-human-year-not-equivalent-to-seven-dog-years-scientists-find?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts">
+          See how we calculate the age
+        </a>
+        <Form onSubmit={doggoToHumanAgeCalc} name="contact" method="post">
+          {/* <label
           style={{ color: "#fff", textAlign: "left", justifyContent: "left" }}
         >
           Name
         </label> */}
-        <Input
-          type="text"
-          id="name"
-          placeholder="Dog's Name"
-          value={name}
-          onChange={nameChangeHandler}
-        />
+          <Input
+            type="text"
+            id="name"
+            placeholder="Dog's Name"
+            value={name}
+            onChange={nameChangeHandler}
+          />
 
-        <Input
-          type="text"
-          id="age"
-          placeholder="Dog's Age"
-          value={doggoAge}
-          onChange={ageChangeHandler}
-        />
-        <input
-          // disabled={name && doggoAge}
-          type="submit"
-          value="Find Out"
-          style={{
-            width: 320,
-            height: 50,
-            backgroundColor: "#c2c2c2",
-            color: "#000",
-            // shapeOutside: "none",
-            border: "none",
-            textAlign: "center",
-            outline: "none",
-          }}
-        />
-      </Form>
-      <a
-        class="bmc-button"
-        target="_blank"
-        href="https://www.buymeacoffee.com/abhisheksah"
-      >
-        <img
-          src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
-          alt="Buy me a Tea"
-        />
-        <span style={{ marginLeft: 5, fontSize: 19 }}>Buy me a Tea</span>
-      </a>
-      <MyPopup
-        open={showPopup}
-        closeOnDocumentClick
-        onClose={() => setShowPopup(false)}
-      >
-        <div className="modal">
-          {/* <a className="close" onClick={() => setShowPopup(false)}>
+          <Input
+            type="text"
+            id="age"
+            placeholder="Dog's Age"
+            value={doggoAge}
+            onChange={ageChangeHandler}
+          />
+          <input
+            // disabled={name && doggoAge}
+            type="submit"
+            value="Find Out"
+            style={{
+              width: 320,
+              height: 50,
+              backgroundColor: "#c2c2c2",
+              color: "#000",
+              // shapeOutside: "none",
+              border: "none",
+              textAlign: "center",
+              outline: "none",
+            }}
+          />
+        </Form>
+        <a
+          class="bmc-button"
+          target="_blank"
+          href="https://www.buymeacoffee.com/abhisheksah"
+        >
+          <img
+            src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+            alt="Buy me a Tea"
+          />
+          <span style={{ marginLeft: 5, fontSize: 19 }}>Buy me a Tea</span>
+        </a>
+        <MyPopup
+          open={showPopup}
+          closeOnDocumentClick
+          onClose={() => setShowPopup(false)}
+        >
+          <div className="modal">
+            {/* <a className="close" onClick={() => setShowPopup(false)}>
             &times;
           </a> */}
-          <h3>
-            Your {name} is {Math.floor(humanAge)} years old
-          </h3>
-        </div>
-      </MyPopup>
+            <h3>
+              Your {name} is {Math.floor(humanAge)} years old
+            </h3>
+          </div>
+        </MyPopup>
+      </div>
     </div>
   );
 }
