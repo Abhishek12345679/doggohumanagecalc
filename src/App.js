@@ -28,7 +28,6 @@ function App() {
       setShowPopup((prevResult) => !prevResult);
     } else {
       alert("Enter the name and age and then continue");
-      return;
     }
 
     event.preventDefault();
