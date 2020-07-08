@@ -3,7 +3,16 @@ import "./App.css";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
 
-import { Navbar, Nav, InputGroup, FormControl, Button } from "react-bootstrap";
+import { SocialIcon } from "react-social-icons";
+
+import {
+  Navbar,
+  Nav,
+  InputGroup,
+  FormControl,
+  Button,
+  Image,
+} from "react-bootstrap";
 
 function App() {
   const [name, setName] = useState("");
@@ -22,7 +31,12 @@ function App() {
   isNaN();
 
   const doggoToHumanAgeCalc = (event) => {
-    if (!!doggoAge && !!name && !isNaN(doggoAge)) {
+    if (
+      !!doggoAge &&
+      !!name &&
+      !isNaN(doggoAge) &&
+      (doggoAge > 0) & (doggoAge < 30)
+    ) {
       const inHumanAge = 16 * Math.log(doggoAge) + 31;
       setHumanAge(inHumanAge);
       setShowPopup((prevResult) => !prevResult);
@@ -45,7 +59,10 @@ function App() {
           variant="dark"
           fixed="top"
         >
-          <Navbar.Brand href="#home">DoggAge</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img src="../logosmall.png" />
+            {"  "}DoggAge
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -117,19 +134,40 @@ function App() {
           </MyPopup>
         </div>
         <div className="info-area">
-          According to the researchers at the University of California San
-          Diego's
-          <br></br>
-          school of medicine, one dog year is not equal to seven human
-          <br></br>
-          years. The findings suggest a one-year-old puppy is actually about 30
-          <br></br>
-          in “human years” – an age when humans, at least, might be expected to
-          <br></br>
-          have stopped running riot with the toilet paper.<br></br>
+          <div className="contributors">
+            <img
+              className="ucsdlogo"
+              src="https://crackingmedadmissions.com/wp-content/uploads/2017/08/UC_San_Diego_School_of_Medicine_Logo_Transparent.jpg"
+            />
+            {/* <Image
+              className="my-img"
+              src="https://lh3.googleusercontent.com/Rr8J2aTwPgaDcTgJiMwSpaC4e-ce9xp4yloUMRUpOQLZdVgh_YkIQOm7WPRZjOU7LQ9sQcrrUCKlPMIluwpgRBvv1uRe6W7Pcpop5RPeUm9FzgC15hn1s2pxIPhC5KNhT9oGifkIyHTHuZGzajxZ9-OmP6p3EX5W8yhTbIVtiWvGjtDPUxWyuKZU1PtCN6PJdixedC2MjeIOn84mPkekw82gUa_rldNOKMC8mb1N0OG56BjyKEup_dpbv_AXFp3n-7TNkstdEKc7pflGyNRO81MkR9rhg0DICIpfOBgRBTo68T9IAWWM3o-Jyj68ttCHlHE4M8LFkhTRwkPe4rZ034SYf16rJHi_yFA3Nn00qVDFqEOmnJJ98EvjwimEM2euovrPD6cy-PV4CWLcIp65d-PrgIxc422p6VIKPDXVe28EiAG1HhwVoETf0umadLjbLo46aX18FGzUfvRly5AKl9JMiepFB3ddRoLKO44mXzTFC3K7sRyNbl6DLEDT8NMrkupZK1FT1IZ43NCGv6LlvFWQmLniHtlLklbY3KKdOzHuK3AvLU3r0xRNxNM8L1qaWye9ynoo01hX-2lv0_WTe8aePKwfEADnLbWn1UBYoJaSccXlYl0gK-390cJ0POpGjTFvb9Hu-b2af2qyl2TXY8L81Gy4VswMUypvWJek-DyNMmL2sJ35eAJeq1JTTa8=w517-h689-no?authuser=0"
+              roundedCircle
+              // thumbnail
+            /> */}
+          </div>
+          <p className="about-research-p">
+            According to the researchers at the University of California San
+            <br></br>
+            Diego's school of medicine, one dog year is not equal to seven human
+            <br></br>
+            years. The findings suggest a one-year-old puppy is actually about
+            30
+            <br></br>
+            in “human years” – an age when humans, at least, might be expected
+            to
+            <br></br>
+            have stopped running riot with the toilet paper.<br></br>
+          </p>
+
           <a href="https://www.theguardian.com/lifeandstyle/2020/jul/02/every-human-year-not-equivalent-to-seven-dog-years-scientists-find?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts">
             how we calculate the age
           </a>
+        </div>
+        <div className="social-btns">
+          <StyledSocialButton url="http://twitter.com/bhisheksah" />
+          <StyledSocialButton url="https://www.instagram.com/tapforabhi/" />
+          <StyledSocialButton url="https://github.com/Abhishek12345679" />
         </div>
       </div>
     </div>
@@ -161,6 +199,10 @@ const Form = styled.form`
   width: 400px;
   height: 300px;
   justify-content: center;
+`;
+
+const StyledSocialButton = styled(SocialIcon)`
+  margin-bottom: 20px;
 `;
 
 export default App;
