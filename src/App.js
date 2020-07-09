@@ -11,7 +11,7 @@ import {
   InputGroup,
   FormControl,
   Button,
-  Image,
+  NavDropdown,
 } from "react-bootstrap";
 
 function App() {
@@ -54,13 +54,13 @@ function App() {
       <header>
         <Navbar
           collapseOnSelect
-          expand="xl"
+          expand="sm"
           bg="dark"
           variant="dark"
           fixed="top"
         >
           <Navbar.Brand href="#home">
-            <img src="../logosmall.png" />
+            <img src="../logosmall.png" alt="dog" />
             {"  "}DoggAge
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -70,11 +70,21 @@ function App() {
               <Nav.Link href="#donate">Donate</Nav.Link>
             </Nav>
             <Nav>
-              ` <Nav.Link href="#deets">About</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Contact
-              </Nav.Link>
-              `
+              <Nav.Link href="#deets">About</Nav.Link>
+              <Nav.Link eventKey={2} href="#memes"></Nav.Link>
+              <NavDropdown title="" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Something
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -136,6 +146,7 @@ function App() {
         <div className="info-area">
           <div className="contributors">
             <img
+              alt="ucsd"
               className="ucsdlogo"
               src="https://crackingmedadmissions.com/wp-content/uploads/2017/08/UC_San_Diego_School_of_Medicine_Logo_Transparent.jpg"
             />
