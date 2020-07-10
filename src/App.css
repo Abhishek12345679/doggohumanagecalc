@@ -128,3 +128,22 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.gender-card {
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 30px;
+    border-radius: 10px !important;
+    border: 1px solid antiquewhite !important;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

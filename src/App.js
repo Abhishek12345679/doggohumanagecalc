@@ -1,3 +1,5 @@
+// male -
+// female  - <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 import React, { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
@@ -91,6 +93,14 @@ function App() {
       </header>
       <div className="content">
         <div className="form-area">
+          <div className="card-container">
+            <div className="gender-card">
+              <img alt="male" src="../male.png" />
+            </div>
+            <div className="gender-card">
+              <img alt="female" src="../female.png" />
+            </div>
+          </div>
           <Form onSubmit={doggoToHumanAgeCalc}>
             <InputGroup className="inputfield">
               <InputGroup.Prepend>
