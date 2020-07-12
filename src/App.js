@@ -214,7 +214,7 @@ const MyPopup = styled(Popup)`
 const Form = styled.form`
   flex-direction: column;
   display: flex;
-  align-items: center;
+  align-items: auto;
   margin-top: 1em;
   background: #343a41;
   width: 400px;
