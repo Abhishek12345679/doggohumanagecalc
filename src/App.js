@@ -1,9 +1,10 @@
-// male -
-// female  - <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 import React, { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
+
+import Lottie from "lottie-web";
+import * as animationData from "./loading.json";
 
 import { SocialIcon } from "react-social-icons";
 
@@ -21,6 +22,8 @@ function App() {
   const [doggoAge, setDoggoAge] = useState("");
   const [humanAge, setHumanAge] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+
+  const animationRef = React.createRef();
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -42,6 +45,7 @@ function App() {
       const inHumanAge = 16 * Math.log(doggoAge) + 31;
       setHumanAge(inHumanAge);
       setShowPopup((prevResult) => !prevResult);
+      // setIsStopped((prev) => !prev);
     } else {
       alert("Enter the name and age and then continue");
       return;
@@ -49,6 +53,22 @@ function App() {
 
     event.preventDefault();
   };
+
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: animationData,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+
+  React.useEffect(() => {
+    Lottie.loadAnimation({
+      container: animationRef.current,
+      animationData: animationData,
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -94,12 +114,7 @@ function App() {
       <div className="content">
         <div className="form-area">
           <div className="card-container">
-            <div className="gender-card">
-              <img alt="male" src="../male.png" />
-            </div>
-            <div className="gender-card">
-              <img alt="female" src="../female.png" />
-            </div>
+            <div className="animation-cont" ref={animationRef}></div>
           </div>
           <Form onSubmit={doggoToHumanAgeCalc}>
             <InputGroup className="inputfield">
@@ -214,7 +229,7 @@ const MyPopup = styled(Popup)`
 const Form = styled.form`
   flex-direction: column;
   display: flex;
-  align-items: auto;
+  align-items: center;
   margin-top: 1em;
   background: #343a41;
   width: 400px;
