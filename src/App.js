@@ -115,6 +115,12 @@ function App() {
         <div className="form-area">
           <div className="card-container">
             <div className="animation-cont" ref={animationRef}></div>
+            {/* <div className="gender-card">
+              <img alt="male" src="../male.png" />
+            </div>
+            <div className="gender-card">
+              <img alt="female" src="../female.png" />
+            </div> */}
           </div>
           <Form onSubmit={doggoToHumanAgeCalc}>
             <InputGroup className="inputfield">

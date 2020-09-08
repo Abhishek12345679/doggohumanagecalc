@@ -6,6 +6,12 @@
     height: 1000px;
 }
 
+.Maintenance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .content {
     display: flex;
     justify-content: space-between;
